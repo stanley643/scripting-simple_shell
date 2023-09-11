@@ -20,7 +20,7 @@ while (1)
 	}
 	else if (pid == 0)
 	{
-		execve();
+	//	execve();
 		perror("./shell");
 		_exit(EXIT_FAILURE);
 	}
