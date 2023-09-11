@@ -1,7 +1,7 @@
 SIMPLE SHELL PROJECT.
 
 An ALX group project carried out by
-1. Simon Murigi Njoroge
+1. Stanley Murigi Njoroge: nmurigi@kabarak.ac.ke
 2. Ihendu Praise Eze
 
 
