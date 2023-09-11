@@ -13,3 +13,8 @@
 
 #define BUFSIZE 1024
 #define MAX_ARGS 11
+
+int _putchar(char c);
+void print_string(char *string);
+
+#endif
