@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef STPRSHELL_H
+#define STPRSHELL_H
 
 
 #include<stdbool.h>
@@ -14,7 +14,7 @@
 #define BUFSIZE 1024
 #define MAX_ARGS 11
 
-int _putchar(char c);
-void print_string(char *string);
+int stpr-putchar(char c);
+void stpr-print_string(char *string);
 
 #endif
