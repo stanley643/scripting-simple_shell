@@ -16,5 +16,8 @@
 
 int stpr-putchar(char c);
 void stpr-print_string(char *string);
+void stpr-tokenize(char **args_array, char *str);
+void stpr-remove_newline(char *str);
+char *stpr-find_path(char *command, char *path[]);
 
 #endif
