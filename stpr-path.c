@@ -1,11 +1,11 @@
 #include "stprshell.h"
 /**
- * stpr-find_path - a pointer trys to access the given path using X_OK
+ * stpr_find_path - a pointer trys to access the given path using X_OK
  * @command: user input
  * @path: the array of pointers to the desired exec file
  * Return: NULL on success
  */
-char *stpr-find_path(char *command, char *path[])
+char *stpr_find_path(char *command, char *path[])
 {
 	char exec_path[BUFSIZE];
 	int i;

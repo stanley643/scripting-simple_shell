@@ -14,6 +14,7 @@
 #define BUFSIZE 1024
 #define MAX_ARGS 11
 
+void print_env(char **env);
 int stpr_putchar(char c);
 void stpr_print_string(char *string);
 void stpr_tokenize(char **args_array, char *str);

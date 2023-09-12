@@ -33,6 +33,21 @@ void stpr_print_string(char *string)
 		i++;
 	}
 }
+/**
+ * print_env - prints enviroment variables
+ * @env: enviroment
+ * Return: none
+ */
+void print_env(char **env)
+{
+	int i;
+
+	if (env == NULL)
+		return;
+
+	for (i = 0; env[i] != NULL; i++)
+		stpr_print_string(env[i]);
+}
 
 
 /**
