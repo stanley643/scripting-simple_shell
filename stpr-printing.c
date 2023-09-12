@@ -41,7 +41,8 @@ char *stpr-create_buf(char *buf);
 */
 
 /**
- * stpr-remove_newline - removes ther new line from the buffer when executing
+ * stpr-remove_newline - removes ther new line 
+ * from the buffer when executing
  * @str: char
  * Return: nothing atall
  */
@@ -73,4 +74,28 @@ char *stpr-create_buf(char *buf)
 	return (buf);
 }
 
+/**
+ * stpr-tokenize - parsing of command line args
+ * by using a delimetor
+ * @args_array: array of arguments
+ * @str: string to be tokenized
+ * i: indexing variable
+ *
+ */
+void stpr-tokenize(char **args_array, char *str)
+{
+	char *token, *delim;
+	int i;
 
+	i = 0;
+
+	delim = " \t\n";
+	token = strtok(str, delim);
+
+	while (token && i < MAX_ARGS - 1)
+	{
+		args_array[i++] = token;
+		token = strtok(NULL, delim);
+	}
+	args_array[i] = NULL;
+}
