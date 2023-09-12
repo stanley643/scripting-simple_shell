@@ -12,7 +12,7 @@ char *line = NULL;
 ssize_t nread;
 size_t len = 0;
 char *args[MAX_ARGS];
-char *executable_path, *env;
+char *executable_path;/**, *env;*/
 char *path[MAX_ARGS];
 char *path_var, *exit_command;
 int i;
@@ -21,7 +21,7 @@ int i;
 (void)argc;
 (void)argv;
 exit_command = "exit";
-env = "env";
+/**env = "env"; */
 path_var = getenv("PATH");
 
 if (path_var == NULL)
