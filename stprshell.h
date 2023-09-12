@@ -14,10 +14,10 @@
 #define BUFSIZE 1024
 #define MAX_ARGS 11
 
-int stpr-putchar(char c);
-void stpr-print_string(char *string);
-void stpr-tokenize(char **args_array, char *str);
-void stpr-remove_newline(char *str);
-char *stpr-find_path(char *command, char *path[]);
-char *stpr-create_buf(char *buf);
+int stpr_putchar(char c);
+void stpr_print_string(char *string);
+void stpr_tokenize(char **args_array, char *str);
+void stpr_remove_newline(char *str);
+char *stpr_find_path(char *command, char *path[]);
+char *stpr_create_buf(char *buf);
 #endif

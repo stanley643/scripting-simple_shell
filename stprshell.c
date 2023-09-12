@@ -39,18 +39,18 @@ while ((path[i] = strtok(NULL, ":")) != NULL)
 
 while (1)
 {
-	stpr-print_string("");
+	stpr_print_string("");
 	nread = getline(&line, &len, stdin);
 	if (nread == -1)
 		break;
-	stpr-remove_newline(line);
-	stpr-tokenize(args, line);
+	stpr_remove_newline(line);
+	stpr_tokenize(args, line);
 	if (args[0] == NULL)
 		continue;
 
 	if (strcmp(args[0], exit_command) == 0)
 		print_env(envp);
-	executable_path = stpr-find_path(args[0], path);
+	executable_path = stpr_find_path(args[0], path);
 	if (executable_path != NULL)
 	{
 

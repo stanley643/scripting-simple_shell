@@ -1,4 +1,4 @@
-#include "main.h"
+#include "stprshell.h"
 /**
  * stpr-find_path - a pointer trys to access the given path using X_OK
  * @command: user input
