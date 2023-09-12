@@ -19,5 +19,5 @@ void stpr-print_string(char *string);
 void stpr-tokenize(char **args_array, char *str);
 void stpr-remove_newline(char *str);
 char *stpr-find_path(char *command, char *path[]);
-
+char *stpr-create_buf(char *buf);
 #endif

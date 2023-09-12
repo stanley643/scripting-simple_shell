@@ -33,3 +33,25 @@ void stpr-print_string(char *string)
 		i++;
 	}
 }
+/**
+ * void stpr-tokenize(char **args_array, char *str);
+void stpr-remove_newline(char *str);
+char *stpr-find_path(char *command, char *path[]);
+char *stpr-create_buf(char *buf);
+*/
+
+/**
+ * stpr-remove_newline - removes ther new line from the buffer when executing
+ * @str: char
+ * Return: nothing atall
+ */
+void stpr-remove_newline(char *str)
+{
+	int len;
+
+	len = strlen(str);
+
+	if (len > 0 && str[len - 1] == '\n')
+		str[len - 1] = '\0';
+}
+
