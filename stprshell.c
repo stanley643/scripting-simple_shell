@@ -39,6 +39,21 @@ while ((path[i] = strtok(NULL, ":")) != NULL)
 
 while (1)
 {
+	stpr-print_string("");
+	nread = getline(&line, &len, stdin);
+	if (nread == -1)
+		break;
+	stpr-remove_newline(line);
+	stpr-tokenize(args, line);
+	if (args[0] == NULL)
+		continue;
+
+	if (strcmp(args[0], exit_command) == 0)
+		print_env(envp);
+	executable_path = stpr-find_path(args[0], path);
+	if (executable_path != NULL)
+	{
+
 	pid = fork();
 
 	if (pid < 0)
@@ -48,11 +63,13 @@ while (1)
 	}
 	else if (pid == 0)
 	{
-	//	execve();
+		execve(executable_path, args, envp);
 		perror("./shell");
 		_exit(EXIT_FAILURE);
 	}
 	wait(NULL);
+	}
 }
+free(line);
 return (0);
 }
