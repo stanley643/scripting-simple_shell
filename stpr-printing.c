@@ -55,3 +55,22 @@ void stpr-remove_newline(char *str)
 		str[len - 1] = '\0';
 }
 
+/**
+ * stpr-create_buf - creating a buffer object
+ * @filename: name of the file
+ * @buf: parameter
+ * Return: code 99
+ */
+char *stpr-create_buf(char *buf)
+{
+	buf = malloc(sizeof(char) * BUFSIZE);
+	if (buf == NULL)
+	{
+		perror("Error creating buffer!");
+		exit(EXIT_FAILURE);
+	}
+
+	return (buf);
+}
+
+
