@@ -39,7 +39,7 @@ while ((path[i] = strtok(NULL, ":")) != NULL)
 
 while (1)
 {
-	stpr_print_string("");
+	stpr_print_string(":) ");
 	nread = getline(&line, &len, stdin);
 	if (nread == -1)
 		break;
