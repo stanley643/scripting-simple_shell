@@ -21,4 +21,5 @@ void stpr_tokenize(char **args_array, char *str);
 void stpr_remove_newline(char *str);
 char *stpr_find_path(char *command, char *path[]);
 char *stpr_create_buf(char *buf);
+void stpr_initialize_path(char *path_var, char **path);
 #endif
