@@ -1,76 +1,75 @@
-#include "stprshell.h"
+#include "main.h"
 
 /**
  * main - the shell playground
- * Return: 0 on success
- *
+ * Return: 0 on success or something else
  */
-int main(int argc, char **argv, char **envp)
+/*Look at argv[5]*/
+int main(void)
 {
-pid_t pid;
-char *line = NULL;
-ssize_t nread;
-size_t len = 0;
-char *args[MAX_ARGS];
-char *executable_path;/**, *env;*/
-char *path[MAX_ARGS];
-char *path_var; /**exit_command;*/
-int i;
+    char *line = NULL;
+    /**int result;*/
+    ssize_t nread;
+    size_t len = 0;
+    pid_t pid;
+    char *args[MAX_ARGS];
+    char *executable_path;
+    char *path[MAX_ARGS];
+    char *path_var;
+    int i;
 
+    path_var = getenv("PATH");
+    if (path_var == NULL)
+    {
+        perror("./hsh");
+        return (EXIT_FAILURE);
+    }
 
-(void)argc;
-(void)argv;
-(void)envp;
-/**exit_command = "exit";*/
-/**env = "env"; */
-path_var = getenv("PATH");
+    i = 0;
+    path[i++] = strtok(path_var, ":");
+    while ((path[i] = strtok(NULL, ":")) != NULL)
+    {
+        i++;
+    }
 
-if (path_var == NULL)
-{
-	perror("./hsh");
-	return (EXIT_FAILURE);
-}
+    while (1)
+    {
+        _print_str("");
+        nread = getline(&line, &len, stdin);
+        if (nread == -1)
+            break;
 
-i = 0;
-path[i++] = strtok(path_var, ":");
-while ((path[i] = strtok(NULL, ":")) != NULL)
-{
-	i++;
-}
+        remove_newline(line);
 
-while (1)
-{
-	stpr_print_string("");
-	nread = getline(&line, &len, stdin);
-	if (nread == -1)
-		break;
-	stpr_remove_newline(line);
-	stpr_tokenize(args, line);
-	if (args[0] == NULL)
-		continue;
+        tokenize_args(args, line);
+        if (args[0] == NULL)
+            continue;
 
-	/**if (strcmp(args[0], exit_command) == 0)
-		print_env(envp);*/
-	executable_path = stpr_find_path(args[0], path);
-	if (executable_path != NULL)
-	{
+        executable_path = find_the_path(args[0], path);
+        if (executable_path != NULL)
+        {
+            pid = fork();
 
-	pid = fork();
+            if (pid < 0)
+            {
+                perror("Process execution failed");
+                continue;
+            }
 
-	if (pid < 0)
-	{
-		perror("Process executrion failed");
-		continue;
-	}
-	else if (pid == 0)
-	{
-		execve(executable_path, args, NULL);
-		perror("./shell");
-		_exit(EXIT_FAILURE);
-	}
-	wait(NULL);
-	}
-}
-free(line);
-return (0);
+            else if (pid == 0)
+            {
+                execve(executable_path, args, NULL);
+                perror("./shell");
+                _exit(EXIT_FAILURE);
+            }
+            wait(NULL);
+        }
+        /*else
+        {
+            
+        }*/
+    }
+
+    free(line);
+    return (0);
 }
