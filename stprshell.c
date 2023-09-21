@@ -20,6 +20,7 @@ int i;
 
 (void)argc;
 (void)argv;
+(void)envp
 exit_command = "exit";
 /**env = "env"; */
 path_var = getenv("PATH");
@@ -39,7 +40,7 @@ while ((path[i] = strtok(NULL, ":")) != NULL)
 
 while (1)
 {
-	stpr_print_string(":) ");
+	stpr_print_string("");
 	nread = getline(&line, &len, stdin);
 	if (nread == -1)
 		break;
@@ -48,8 +49,8 @@ while (1)
 	if (args[0] == NULL)
 		continue;
 
-	if (strcmp(args[0], exit_command) == 0)
-		print_env(envp);
+	/**if (strcmp(args[0], exit_command) == 0)
+		print_env(envp);*/
 	executable_path = stpr_find_path(args[0], path);
 	if (executable_path != NULL)
 	{
@@ -63,7 +64,7 @@ while (1)
 	}
 	else if (pid == 0)
 	{
-		execve(executable_path, args, envp);
+		execve(executable_path, args, NULL);
 		perror("./shell");
 		_exit(EXIT_FAILURE);
 	}
