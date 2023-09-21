@@ -1,4 +1,4 @@
-#include "main.h"
+#include "stpr.h"
 
 /**
  * main - the shell playground

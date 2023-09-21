@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef STPR_H
+#define STPR_H
 
 #include <stdbool.h>
 #include <unistd.h>
