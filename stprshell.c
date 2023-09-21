@@ -14,14 +14,14 @@ size_t len = 0;
 char *args[MAX_ARGS];
 char *executable_path;/**, *env;*/
 char *path[MAX_ARGS];
-char *path_var, *exit_command;
+char *path_var; /**exit_command;*/
 int i;
 
 
 (void)argc;
 (void)argv;
-(void)envp
-exit_command = "exit";
+(void)envp;
+/**exit_command = "exit";*/
 /**env = "env"; */
 path_var = getenv("PATH");
 
