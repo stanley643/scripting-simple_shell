@@ -37,7 +37,7 @@ void _EOF(int len, char *buff)
 void _isatty(void)
 {
 	if (isatty(STDIN_FILENO))
-		_puts("#cisfun$ ");
+		_puts("");
 }
 /**
  * main - Shell
